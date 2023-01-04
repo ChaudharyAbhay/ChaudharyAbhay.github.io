@@ -1,3 +1,27 @@
-.Button_Introductions{
-	color:blue;
+body{
+	background: linear-gradient(90deg, rgb(56, 33, 122) 0%, rgb(33, 30, 31) 89%);
+	color: whitesmoke;
+	display: flex;
+	justify-content: center;
+}
+
+.Button_Introductions button{
+	color: black;
+	background: whitesmoke;
+	padding: 5px 10px;
+	margin: 10px;
+	font-size: 20px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+button:hover{
+	color: whitesmoke;
+	background: black;
+	transform: scale(1.25);
+	transition: 0.5s ease;
+}
+.all-button{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
