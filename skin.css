@@ -13,15 +13,16 @@ body{
 	font-size: 20px;
 	border-radius: 10px;
 	cursor: pointer;
+	align-self: center;
+	align-items: baseline;
+	image-rendering: auto;
+	size-adjust: 10px;
+
+	
 }
 button:hover{
 	color: whitesmoke;
 	background: black;
 	transform: scale(1.25);
 	transition: 0.5s ease;
-}
-.all-button{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 }
