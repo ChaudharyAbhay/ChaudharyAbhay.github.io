@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
+   basePath: '/main',
   typescript: {
     ignoreBuildErrors: true, // <-- THIS skips TS errors during build
   },
