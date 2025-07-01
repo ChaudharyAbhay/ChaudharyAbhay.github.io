@@ -485,6 +485,7 @@ class CarLights {
     );
     const geometry = new THREE.TubeGeometry(curve, 40, 1, 8, false);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const instanced = new THREE.InstancedBufferGeometry().copy(geometry as any) as THREE.InstancedBufferGeometry;
     instanced.instanceCount = options.lightPairsPerRoadWay * 2;
 
@@ -572,6 +573,7 @@ class CarLights {
       ),
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     material.onBeforeCompile = (shader: any) => {
       shader.vertexShader = shader.vertexShader.replace(
         "#include <getDistortion_vertex>",
@@ -656,6 +658,7 @@ class LightsSticks {
   init() {
     const options = this.options;
     const geometry = new THREE.PlaneGeometry(1, 1);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const instanced = new THREE.InstancedBufferGeometry().copy(geometry as any) as THREE.InstancedBufferGeometry;
     const totalSticks = options.totalSideLightSticks;
     instanced.instanceCount = totalSticks;
@@ -715,6 +718,7 @@ class LightsSticks {
       ),
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     material.onBeforeCompile = (shader: any) => {
       shader.vertexShader = shader.vertexShader.replace(
         "#include <getDistortion_vertex>",
@@ -813,6 +817,7 @@ class Road {
       segments
     );
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let uniforms: Record<string, { value: any }> = {
       uTravelLength: { value: options.length },
       uColor: {
@@ -857,6 +862,7 @@ class Road {
       ),
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     material.onBeforeCompile = (shader: any) => {
       shader.vertexShader = shader.vertexShader.replace(
         "#include <getDistortion_vertex>",
