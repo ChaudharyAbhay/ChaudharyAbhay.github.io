@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint"
   },
   "dependencies": {
@@ -28,8 +29,4 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   }
-},
-"scripts": {
-  "build": "next build",
-  "export": "next export"
 }
