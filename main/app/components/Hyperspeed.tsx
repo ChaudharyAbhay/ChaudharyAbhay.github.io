@@ -13,7 +13,7 @@ import {
 import "./Hyperspeed.css";
 
 interface Distortion {
-  uniforms: Record<string, { value: any }>;
+  uniforms: Record<string, { value: THREE.Vector2 | THREE.Vector3 | THREE.Vector4 }>;
   getDistortion: string;
   getJS?: (progress: number, time: number) => THREE.Vector3;
 }
@@ -458,7 +458,7 @@ function lerp(
 class CarLights {
   webgl: App;
   options: HyperspeedOptions;
-  colors: number[] | THREE.Color;
+  colors: number[] | THREE.Color | THREE.Color[];
   speed: [number, number];
   fade: THREE.Vector2;
   mesh!: THREE.Mesh<THREE.InstancedBufferGeometry, THREE.ShaderMaterial>;
@@ -466,7 +466,7 @@ class CarLights {
   constructor(
     webgl: App,
     options: HyperspeedOptions,
-    colors: number[] | THREE.Color,
+    colors: number[] | THREE.Color | THREE.Color[],
     speed: [number, number],
     fade: THREE.Vector2
   ) {
@@ -985,13 +985,13 @@ class App {
   renderPass!: RenderPass;
   bloomPass!: EffectPass;
   clock: THREE.Clock;
-  assets: Record<string, any>;
+  assets: Record<string, { search?: HTMLImageElement; area?: HTMLImageElement } | THREE.Texture> & { smaa: { search?: HTMLImageElement; area?: HTMLImageElement } };
   disposed: boolean;
   road: Road;
   leftCarLights: CarLights;
   rightCarLights: CarLights;
   leftSticks: LightsSticks;
-  fogUniforms: Record<string, { value: any }>;
+  fogUniforms: Record<string, { value: number | THREE.Color }>;
   fovTarget: number;
   speedUpTarget: number;
   speedUp: number;
@@ -1044,7 +1044,7 @@ class App {
     };
 
     this.clock = new THREE.Clock();
-    this.assets = {};
+    this.assets = { smaa: {} } as typeof this.assets;
     this.disposed = false;
 
     this.road = new Road(this, options);

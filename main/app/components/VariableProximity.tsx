@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, useRef, useEffect, MutableRefObject, RefObject, HTMLAttributes} from "react";
+import { forwardRef, useMemo, useRef, useEffect, RefObject, HTMLAttributes} from "react";
 import { motion } from "framer-motion";
 import "./VariableProximity.css";
 

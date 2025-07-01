@@ -4,8 +4,7 @@ import githubIcon from "./social-icons/github.svg";
 import instagramIcon from "./social-icons/instagram.svg";
 import twitterIcon from "./social-icons/twitter.svg";
 import discordIcon from "./social-icons/discord.svg";
-import facebookIcon from "./social-icons/facebook.svg";
-import gmailIcon from "./social-icons/gmail.svg";
+
 
 const SOCIALS = [
   {
@@ -61,7 +60,7 @@ const SocialBubbles: React.FC = () => {
         if (!bubble) return;
         let left = parseFloat(bubble.style.left || "0");
         let top = parseFloat(bubble.style.top || "0");
-        let v = velocities.current[i];
+        const v = velocities.current[i];
         left += v.x;
         top += v.y;
         // Bounce off walls (top area only)
@@ -76,16 +75,16 @@ const SocialBubbles: React.FC = () => {
       for (let i = 0; i < bubblesRef.current.length; i++) {
         const a = bubblesRef.current[i];
         if (!a) continue;
-        let ax = parseFloat(a.style.left || "0") + BUBBLE_SIZE / 2;
-        let ay = parseFloat(a.style.top || "0") + BUBBLE_SIZE / 2;
+        const ax = parseFloat(a.style.left || "0") + BUBBLE_SIZE / 2;
+        const ay = parseFloat(a.style.top || "0") + BUBBLE_SIZE / 2;
         for (let j = i + 1; j < bubblesRef.current.length; j++) {
           const b = bubblesRef.current[j];
           if (!b) continue;
-          let bx = parseFloat(b.style.left || "0") + BUBBLE_SIZE / 2;
-          let by = parseFloat(b.style.top || "0") + BUBBLE_SIZE / 2;
-          let dx = bx - ax;
-          let dy = by - ay;
-          let dist = Math.sqrt(dx * dx + dy * dy);
+          const bx = parseFloat(b.style.left || "0") + BUBBLE_SIZE / 2;
+          const by = parseFloat(b.style.top || "0") + BUBBLE_SIZE / 2;
+          const dx = bx - ax;
+          const dy = by - ay;
+          const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < BUBBLE_SIZE) {
             // Simple elastic collision: swap velocities
             const va = velocities.current[i];
@@ -123,7 +122,7 @@ const SocialBubbles: React.FC = () => {
       });
     }
     animate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
   return (
