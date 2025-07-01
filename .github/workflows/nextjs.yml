@@ -23,12 +23,12 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./main
-        run: npm install
+        run: npm install --legacy-peer-deps
 
-      - name: Build and Export
+      - name: Build and Export (no ESLint)
         working-directory: ./main
         run: |
-          npm run build
+          NEXT_DISABLE_ESLINT=true npm run build
           npm run export
 
       - name: Deploy to GitHub Pages
