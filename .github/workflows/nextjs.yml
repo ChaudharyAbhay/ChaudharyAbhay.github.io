@@ -25,11 +25,9 @@ jobs:
         working-directory: ./main
         run: npm install --legacy-peer-deps
 
-      - name: Build and Export (no ESLint)
+      - name: Build (no ESLint, export enabled in config)
         working-directory: ./main
-        run: |
-          NEXT_DISABLE_ESLINT=true npm run build
-          npm run export
+        run: NEXT_DISABLE_ESLINT=true npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
